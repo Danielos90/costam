@@ -1,0 +1,17 @@
+name: Testujemy githuba
+# keidy sie odpala: timer,push
+on:
+  - push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 123 > test.html
+      - uses: actions/upload-artifact@v7
+        with:
+          path: test.html
+  test: 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download
+      - run: test -f tets.html
